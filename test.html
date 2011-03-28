@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Tweet Streamer</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Tweet Stream</h1>
+        <ul id="tweets"></ul>
+        <script type="text/javascript">
+          var tweet_list = $("ul#tweets");
+          function load_tweets() {
+              $.getJSON("/stream", function(tweets) {
+                  $.each(tweets, function() {
+                    $("<li>").html(
+                      "<img src=\"" + this.user.profile_image_url + "\" />" +
+                      "<strong>" + this.user.screen_name + "</strong> " +
+                      this.text).prependTo(tweet_list);
+                  });
+                  load_tweets();
+              });
+          }
+          setTimeout(load_tweets, 1000);
+        </script>
+    </body>
+</html>
