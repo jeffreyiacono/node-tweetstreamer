@@ -1,0 +1,5 @@
+A simple node.js driven web-app that streams twitter's public status via their api
+Inspired by "Learning Server-Side JavaScript with Node.js" - converted to Coffee Script
+(http://net.tutsplus.com/tutorials/javascript-ajax/learning-serverside-javascript-with-node-js/comment-page-1/)
+
+Tested with node v0.4.4, coffeescript 1.0.1
